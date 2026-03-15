@@ -1,0 +1,22 @@
+# Compilados do Java
+*.class
+*.jar
+*.war
+
+# Pastas de IDEs
+.vscode/
+.idea/
+*.iml
+.settings/
+.classpath
+.project
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+gen/
+
+# Pasta de build do Maven/Gradle
+target/
+bin/
