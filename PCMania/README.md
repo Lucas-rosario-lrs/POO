@@ -140,5 +140,3 @@ A ferramenta contribuiu para:
 * Organização da arquitetura do projeto
 
 ✔️ Isso permitiu uma implementação mais fluida, estruturada e alinhada com boas práticas de programação.
-Só falar 👍
-```
