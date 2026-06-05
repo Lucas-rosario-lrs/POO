@@ -4,3 +4,5 @@ TCP;1001;192.168.0.1;10.0.0.5;aterceSrepuSahneS;true
 UDP;1002;192.168.0.2;10.0.0.6;edeReDlitUagraC;5000
 TCP;1001;192.168.0.1;10.0.0.5;aterceSrepuSahneS;true
 UDP;1002;192.168.0.2;10.0.0.6;edeReDlitUagraC;5000
+TCP;1001;192.168.0.1;10.0.0.5;[AES_Encriptado] SenhaSuperSecreta;true
+UDP;1002;192.168.0.2;10.0.0.6;[AES_Encriptado] CargaUtilDeRede;5000
