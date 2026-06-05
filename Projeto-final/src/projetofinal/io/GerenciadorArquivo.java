@@ -38,6 +38,7 @@ public class GerenciadorArquivo {
             }
         }
         return pacotes;
+
     }
 
     public void salvarLog(String caminho, String dados) throws IOException {
