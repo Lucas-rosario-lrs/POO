@@ -1,4 +1,5 @@
 package projetofinal.io;
+import projetofinal.excecoes.ExcecaoPacoteInvalido;
 import projetofinal.modelo.PacoteRede;
 import projetofinal.modelo.PacoteTCP;
 import projetofinal.modelo.PacoteUDP;
