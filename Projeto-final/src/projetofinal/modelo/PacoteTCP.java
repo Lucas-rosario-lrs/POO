@@ -8,6 +8,10 @@ public class PacoteTCP extends PacoteRede {
         this.isAck = isAck;
     }
 
+    public boolean isAck() {
+        return this.isAck;
+    }
+
     @Override
     public void exibirDetalhes() {
         System.out.println("--Pacote TCP--");

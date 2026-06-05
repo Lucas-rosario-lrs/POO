@@ -1,26 +1,33 @@
 package projetofinal.concorrencia;
 
-public class ProcessadorPacoteThread implements Runnable {
-//criação da estrutura esqueleto
-    private String dadosFicticios; // Trocar por PacoteRede após os colegas fazerem o codigo
-    private int idThread;
+import projetofinal.modelo.PacoteRede;
+import projetofinal.seguranca.ICriptografia;
+import projetofinal.io.GerenciadorArquivo;
 
-    public ProcessadorPacoteThread(int idThread, String dadosFicticios) {
+public class ProcessadorPacoteThread implements Runnable {
+    private int idThread;
+    private PacoteRede pacote;
+    private ICriptografia motorCripto;
+    private GerenciadorArquivo gerenciador;
+
+    // Construtor completo ligando todas as pontas
+    public ProcessadorPacoteThread(int idThread, PacoteRede pacote, ICriptografia motor, GerenciadorArquivo gerenciador) {
         this.idThread = idThread;
-        this.dadosFicticios = dadosFicticios;
+        this.pacote = pacote;
+        this.motorCripto = motor;
+        this.gerenciador = gerenciador;
     }
 
     @Override
     public void run() {
-        System.out.println("Thread [" + idThread + "] iniciou o processamento...");
+        System.out.println("Thread [" + idThread + "] processando pacote ID: " + pacote.getId());
 
-        try {
-            // Simulando o tempo de processamento da criptografia
-            Thread.sleep((long) (Math.random() * 2000));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        String payloadOriginal = pacote.getPayload();
+        String payloadSeguro = motorCripto.criptografar(payloadOriginal); // Criptografa
+        pacote.setPayload(payloadSeguro); // Atualiza
 
-        System.out.println("Thread [" + idThread + "] finalizou! Dados seguros: ***" + dadosFicticios + "***");
+        gerenciador.salvarLog("logs_processados.txt", pacote); // Salva no arquivo novo
+
+        System.out.println("Thread [" + idThread + "] Finalizada! Payload seguro salvo.");
     }
 }

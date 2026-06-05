@@ -1,0 +1,2 @@
+TCP;1001;192.168.0.1;10.0.0.5;SenhaSuperSecreta;true
+UDP;1002;192.168.0.2;10.0.0.6;CargaUtilDeRede;5000

@@ -13,29 +13,17 @@ public abstract class PacoteRede {
         this.payload = payload;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getIpOrigem() { return ipOrigem; }
+    public void setIpOrigem(String ipOrigem) { this.ipOrigem = ipOrigem; }
 
-    public String getIpOrigem() {
-        return ipOrigem;
-    }
+    public String getIpDestino() { return ipDestino; }
+    public void setIpDestino(String ipDestino) { this.ipDestino = ipDestino; }
 
-    public void setIpOrigem(String ipOrigem) {
-        this.ipOrigem = ipOrigem;
-    }
-
-    public String getPayload() {
-        return payload;
-    }
-
-    public void setPayload(String payload) {
-        this.payload = payload;
-    }
+    public String getPayload() { return payload; }
+    public void setPayload(String payload) { this.payload = payload; }
 
     public abstract void exibirDetalhes();
 }

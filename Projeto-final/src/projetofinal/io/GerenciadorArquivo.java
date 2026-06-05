@@ -1,11 +1,14 @@
 package projetofinal.io;
+
 import projetofinal.modelo.PacoteRede;
 import projetofinal.modelo.PacoteTCP;
 import projetofinal.modelo.PacoteUDP;
+import projetofinal.excecoes.ExcecaoPacoteInvalido;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +42,36 @@ public class GerenciadorArquivo {
         return pacotes;
     }
 
-    public void salvarLog(String caminho, String dados) throws IOException {
-        Files.writeString(Path.of(caminho), dados + System.lineSeparator(), java.nio.file.StandardOpenOption.CREATE, java.nio.file.StandardOpenOption.APPEND);
+    public synchronized void salvarLog(String caminho, PacoteRede pacote) {
+        try {
+            StringBuilder sb = new StringBuilder();
+
+            if (pacote instanceof PacoteTCP) {
+                PacoteTCP tcp = (PacoteTCP) pacote;
+                sb.append("TCP;").append(tcp.getId()).append(";")
+                        .append(tcp.getIpOrigem()).append(";")
+                        .append(tcp.getIpDestino()).append(";")
+                        .append(tcp.getPayload()).append(";")
+                        .append(tcp.isAck());
+            } else if (pacote instanceof PacoteUDP) {
+                PacoteUDP udp = (PacoteUDP) pacote;
+                sb.append("UDP;").append(udp.getId()).append(";")
+                        .append(udp.getIpOrigem()).append(";")
+                        .append(udp.getIpDestino()).append(";")
+                        .append(udp.getPayload()).append(";")
+                        .append(udp.getPortaOrigem());
+            }
+
+            sb.append(System.lineSeparator());
+
+            Files.writeString(
+                    Path.of(caminho),
+                    sb.toString(),
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND
+            );
+        } catch (IOException e) {
+            System.out.println("[ERRO] Falha ao gravar dados no arquivo de saída: " + e.getMessage());
+        }
     }
 }
