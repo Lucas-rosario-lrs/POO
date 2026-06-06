@@ -18,9 +18,9 @@ Para os devidos efeitos de avaliação e em cumprimento do critério estipulado 
 ### Como a IA foi utilizada
 A IA atuou como um assistente de planeamento ("pair programmer" e tutor) ao longo das seguintes fases do projeto:
 
-1. **Ideação e Arquitetura Inicial:** * A IA ajudou a maturar a ideia do analisador de tráfego com criptografia, sugerindo uma arquitetura de pacotes (`modelo`, `io`, `seguranca`, `concorrencia` e `excecoes`) alinhada com as boas práticas exigidas na disciplina.
-2. **Divisão de Tarefas:** * Auxiliou na divisão equitativa das tarefas em 3 partes, garantindo que todos os elementos do grupo aplicassem conceitos cruciais de POO (Herança, Polimorfismo, Interfaces e Threads).
-3. **Revisão de Código e Resolução de Erros (Debugging):** * A IA ajudou a identificar erros de compilação na junção das partes (por exemplo, a falta dos métodos *getters* `isAck()` e `getPortaOrigem()` nas classes filhas).
+1. **Ideação e Arquitetura Inicial:** A IA ajudou a maturar a ideia do analisador de tráfego com criptografia, sugerindo uma arquitetura de pacotes (`modelo`, `io`, `seguranca`, `concorrencia` e `excecoes`) alinhada com as boas práticas exigidas na disciplina.
+2. **Divisão de Tarefas:** Auxiliou na divisão equitativa das tarefas em 3 partes, garantindo que todos os elementos do grupo aplicassem conceitos cruciais de POO (Herança, Polimorfismo, Interfaces e Threads).
+3. **Revisão de Código e Resolução de Erros (Debugging):** A IA ajudou a identificar erros de compilação na junção das partes (por exemplo, a falta dos métodos *getters* `isAck()` e `getPortaOrigem()` nas classes filhas, no momento em que os membros juntaram suas partes do trabalho).
    * Sugeriu a implementação de tratamento de exceções com blocos `try-catch` para erros de *InputMismatchException* no menu de leitura.
    * Explicou e sugeriu o uso do modificador `synchronized` no método de escrita de ficheiros para garantir a segurança no uso simultâneo de *Threads* (*Thread-Safe*).
    * Auxilio na criação do Readme.
